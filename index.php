@@ -17,6 +17,17 @@ class Movie
         $this->director = $_director;
         $this->genre = $_genre;
     }
+
+    public function isOld()
+    {
+        // if ($this->year <= 1999) {
+        //     return "Il film è vecchio.";
+        // } else {
+        //     return "Il film è recente.";
+        // }
+
+        return $this->year <= 1999 ? "Il film è vecchio." : "Il film è recente.";
+    }
 }
 
 class Genre
@@ -30,6 +41,7 @@ class Genre
         $this->description = $_description;
     }
 
+
 }
 
 $genre_action = new Genre("Azione", "Film caratterizzati da scene ad alta tensione, inseguimenti e scontri fisici, pensati per tenere lo spettatore col fiato sospeso.ione");
@@ -38,9 +50,12 @@ $genre_commedy_action = new Genre("Commedia d'azione ", "Film che combinano sequ
 
 $fast_and_furious = new Movie("Fast and furious", 2001, 106, "Rob Cohen", $genre_action);
 $deadpool = new Movie("Deadpool", 2016, 108, "Tim Miller", $genre_commedy_action);
+$matrix = new Movie("Matrix", 1999, 136, "Lana & Lilly Wachowski", $genre_action);
+
 
 // var_dump($fast_and_furious);
-var_dump($deadpool);
+// var_dump($deadpool);
+var_dump($matrix->isOld());
 ?>
 
 
@@ -57,7 +72,7 @@ var_dump($deadpool);
 </head>
 
 <body>
-    <h1>Test</h1>
+    <h1>Film</h1>
 
 </body>
 
