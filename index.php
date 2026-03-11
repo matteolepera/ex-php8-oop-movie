@@ -1,3 +1,31 @@
+<?php
+
+class Movie
+{
+    public $name;
+    public $year;
+    public $durationInMinutes;
+    public $director;
+
+    public function __construct($_name, $_year, $_durationInMinutes, $_director)
+    {
+        $this->name = $_name;
+        $this->year = $_year;
+        $this->durationInMinutes = $_durationInMinutes;
+        $this->director = $_director;
+
+    }
+}
+
+
+$fast_and_furious = new Movie("Fast and furious", 2001, 106, "Rob Cohen");
+$deadpool = new Movie("Deadpool", 2016, 108, "Tim Miller");
+
+// var_dump($fast_and_furious);
+var_dump($deadpool);
+?>
+
+
 <!DOCTYPE html>
 <html lang="it">
 
