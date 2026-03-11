@@ -7,19 +7,37 @@ class Movie
     public $durationInMinutes;
     public $director;
 
-    public function __construct($_name, $_year, $_durationInMinutes, $_director)
+    public $genre;
+
+    public function __construct($_name, $_year, $_durationInMinutes, $_director, $_genre)
     {
         $this->name = $_name;
         $this->year = $_year;
         $this->durationInMinutes = $_durationInMinutes;
         $this->director = $_director;
-
+        $this->genre = $_genre;
     }
 }
 
+class Genre
+{
+    public $name;
+    public $description;
 
-$fast_and_furious = new Movie("Fast and furious", 2001, 106, "Rob Cohen");
-$deadpool = new Movie("Deadpool", 2016, 108, "Tim Miller");
+    public function __construct($_name, $_description)
+    {
+        $this->name = $_name;
+        $this->description = $_description;
+    }
+
+}
+
+$genre_action = new Genre("Azione", "Film caratterizzati da scene ad alta tensione, inseguimenti e scontri fisici, pensati per tenere lo spettatore col fiato sospeso.ione");
+$genre_commedy_action = new Genre("Commedia d'azione ", "Film che combinano sequenze d'azione con elementi comici, offrendo un mix di adrenalina e umorismo per intrattenere il pubblico.");
+
+
+$fast_and_furious = new Movie("Fast and furious", 2001, 106, "Rob Cohen", $genre_action);
+$deadpool = new Movie("Deadpool", 2016, 108, "Tim Miller", $genre_commedy_action);
 
 // var_dump($fast_and_furious);
 var_dump($deadpool);
