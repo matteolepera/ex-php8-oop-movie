@@ -7,15 +7,14 @@ class Movie
     public $durationInMinutes;
     public $director;
 
-    public $genre;
+    public $genres = [];
 
-    public function __construct($_name, $_year, $_durationInMinutes, $_director, $_genre)
+    public function __construct($_name, $_year, $_durationInMinutes, $_director)
     {
         $this->name = $_name;
         $this->year = $_year;
         $this->durationInMinutes = $_durationInMinutes;
         $this->director = $_director;
-        $this->genre = $_genre;
     }
 
     public function isOld()
@@ -27,6 +26,15 @@ class Movie
         // }
 
         return $this->year <= 1999 ? "Il film è vecchio." : "Il film è recente.";
+    }
+
+    public function addGenre(Genre $_genre)
+    {
+        return $this->genres[] = $_genre;
+    }
+    public function getGenres()
+    {
+        return $this->genres;
     }
 }
 
@@ -48,14 +56,17 @@ $genre_action = new Genre("Azione", "Film caratterizzati da scene ad alta tensio
 $genre_commedy_action = new Genre("Commedia d'azione ", "Film che combinano sequenze d'azione con elementi comici, offrendo un mix di adrenalina e umorismo per intrattenere il pubblico.");
 
 
-$fast_and_furious = new Movie("Fast and furious", 2001, 106, "Rob Cohen", $genre_action);
-$deadpool = new Movie("Deadpool", 2016, 108, "Tim Miller", $genre_commedy_action);
-$matrix = new Movie("Matrix", 1999, 136, "Lana & Lilly Wachowski", $genre_action);
+$fast_and_furious = new Movie("Fast and furious", 2001, 106, "Rob Cohen", );
+$deadpool = new Movie("Deadpool", 2016, 108, "Tim Miller");
+$matrix = new Movie("Matrix", 1999, 136, "Lana & Lilly Wachowski");
 
 
 // var_dump($fast_and_furious);
-// var_dump($deadpool);
+var_dump($deadpool);
 var_dump($matrix->isOld());
+
+$deadpool->addGenre($genre_commedy_action);
+var_dump($deadpool->getGenres());
 ?>
 
 
